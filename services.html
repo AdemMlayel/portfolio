@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Adam Mlayel</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav>
+        <div class="logo">ADAM<span>MLAYEL</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li>
+                <button id="theme-toggle"
+                    style="background: none; border: none; color: var(--text-primary); cursor: pointer; font-size: 1.2rem;">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <!-- PROJECTS -->
+        <h1>Selected <span>Projects</span></h1>
+
+        <div class="services-grid">
+
+            <!-- VERDA – FINAL YEAR PROJECT -->
+            <div class="card collapsible">
+                <h3>VERDA — Intelligent & Sustainable Digital Platform (Final Year Project)</h3>
+                <p class="muted">
+                    Final year project focused on AI-driven behavior and eco-designed digital systems.
+                </p>
+
+                <button class="toggle-btn">View details</button>
+
+                <div class="card-details">
+                    <p>
+                        VERDA is an intelligent, performance-first platform designed around responsible digital
+                        principles. It combines AI agents with sustainability-oriented architecture.
+                    </p>
+
+                    <p>
+                        During <strong>La Nuit de l’Info 2025</strong>, our team <strong>Night’s Watch</strong>
+                        implemented a functional version of VERDA and achieved <strong>🥈 2nd place</strong>.
+                    </p>
+
+                    <p class="muted">
+                        Focus areas: Green IT, reduced DOM size, optimized HTTP requests, agent-based AI behavior.
+                    </p>
+
+                    <p class="muted">
+                        Tech: AI Agents · FastAPI · Modern Frontend · Performance Optimization
+                    </p>
+                </div>
+            </div>
+
+            <!-- ELECTRO REPAIR PLATFORM -->
+            <div class="card collapsible">
+                <h3>Electro Repair Platform</h3>
+                <p class="muted">
+                    Full-stack platform for managing electronic repair requests.
+                </p>
+
+                <button class="toggle-btn">View details</button>
+
+                <div class="card-details">
+                    <p>
+                        Web application enabling users, technicians, and administrators to manage repair tickets
+                        through role-based workflows.
+                    </p>
+
+                    <p class="muted">
+                        Next.js · FastAPI · PostgreSQL · Docker · JWT Authentication
+                    </p>
+                </div>
+            </div>
+
+            <!-- SECURE DOCUMENT VAULT -->
+            <div class="card collapsible">
+                <h3>Secure Intelligent Document Vault</h3>
+                <p class="muted">
+                    AI-powered, containerized document management system.
+                </p>
+
+                <button class="toggle-btn">View details</button>
+
+                <div class="card-details">
+                    <p>
+                        Microservices-based document system with OCR, AI summarization,
+                        GPU acceleration, and SSO authentication.
+                    </p>
+
+                    <p class="muted">
+                        React · Node.js · Mayan EDMS · Ollama · Keycloak · PostgreSQL · Redis
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- SERVICES OFFERED -->
+        <h1 style="margin-top: 5rem;">Services <span>Offered</span></h1>
+
+        <div class="services-grid">
+            <div class="card">
+                <i class="fas fa-brain"></i>
+                <h3>Artificial Intelligence Solutions</h3>
+                <p>
+                    Design and development of AI-powered systems, including machine learning models,
+                    generative AI, intelligent agents, and data-driven automation.
+                </p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-server"></i>
+                <h3>Backend & API Development</h3>
+                <p>
+                    Secure and scalable REST APIs using FastAPI or Node.js, including authentication,
+                    database integration, and performance optimization.
+                </p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-layer-group"></i>
+                <h3>System Architecture & Microservices</h3>
+                <p>
+                    Design of containerized architectures and microservices-based systems using Docker,
+                    message queues, and modular service design.
+                </p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-database"></i>
+                <h3>Data & Database Engineering</h3>
+                <p>
+                    Database design, optimization, and management using PostgreSQL and MySQL,
+                    with a focus on data integrity and performance.
+                </p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Web & Mobile Applications</h3>
+                <p>
+                    Development of responsive web and mobile applications integrating real-time data,
+                    AI features, and modern UI/UX principles.
+                </p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-leaf"></i>
+                <h3>Eco-Design & Performance Optimization</h3>
+                <p>
+                    Application of Green IT and eco-design practices to reduce resource consumption,
+                    improve performance, and build sustainable digital products.
+                </p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-paint-brush"></i>
+                <h3>UI/UX & Visual Design</h3>
+                <p>
+                    Creation of clean, user-centered interfaces and visual assets using Figma,
+                    Photoshop, and Blender.
+                </p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-cogs"></i>
+                <h3>DevOps & Development Tooling</h3>
+                <p>
+                    Project setup, containerization, version control, and automation workflows using
+                    Docker, Git, and best development practices.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <script src="main.js"></script>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <p>© 2026 Adam Mlayel</p>
+            </div>
+
+            <div class="footer-links">
+                <a href="mailto:mlayeladam@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/adam-m-layel-655a6a298/" target="_blank"><i
+                        class="fab fa-linkedin"></i></a>
+
+                <span><i class="fas fa-map-marker-alt"></i> Tunis, Tunisia </span>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

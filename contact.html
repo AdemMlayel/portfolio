@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Adam Mlayel</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+</head>
+
+<body class="fade-in">
+    <nav>
+        <div class="logo">ADAM<span>MLAYEL</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li>
+                <button id="theme-toggle"
+                    style="background: none; border: none; color: var(--text-primary); cursor: pointer; font-size: 1.2rem;">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <div class="contact-wrapper" style="display: flex; gap: 4rem; flex-wrap: wrap;">
+            <section class="contact-form" style="flex: 2; min-width: 300px;">
+                <h2>Get in Touch</h2>
+                <form id="contact-form">
+                    <input class="contact-input" type="text" name="from_name" placeholder="Name" required>
+
+                    <input class="contact-input" type="email" name="from_email" placeholder="Email" required>
+                    <textarea class="contact-textarea" name="message" rows="5" placeholder="Message"
+                        required></textarea>
+                    <button type="submit" id="submit-btn" class="cta-btn">Send Message</button>
+                </form>
+                <div id="status-message" style="margin-top: 1rem; display: none;"></div>
+            </section>
+
+            <div class="contact-info-box" style="flex: 1; min-width: 250px;">
+                <h3>Contact Information</h3>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:mlayeladam@gmail.com"
+                        style="color: var(--accent-color);">mlayeladam@gmail.com</a> </p>
+                <p><i class="fas fa-phone"></i> +216 24993681</p>
+                <p><i class="fas fa-map-marker-alt"></i> Tunis, Tunisia </p>
+
+                <div class="available-for" style="margin-top: 2rem;">
+                    <h4>Core Competencies</h4>
+                    <ul style="list-style: none; color: var(--text-secondary);">
+                        <li><i class="fas fa-check-circle" style="color: var(--accent-color);"></i> Problem Solving
+                        </li>
+                        <li><i class="fas fa-check-circle" style="color: var(--accent-color);"></i> Creative Thinking
+                        </li>
+                        <li><i class="fas fa-check-circle" style="color: var(--accent-color);"></i> Technical
+                            Communication </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        emailjs.init("e3cgwnJuDxG6NPFKv"); // Replace with actual key
+
+        const form = document.getElementById('contact-form');
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const btn = document.getElementById('submit-btn');
+            btn.innerText = "Sending...";
+
+            emailjs.sendForm('service_ili9p6k', 'template_vuao5bm', this)
+                .then(() => {
+                    document.getElementById('status-message').innerText = "✅ Message sent successfully!";
+                    document.getElementById('status-message').style.display = "block";
+                    btn.innerText = "Send Message";
+                    form.reset();
+                }, (err) => {
+                    alert(JSON.stringify(err));
+                });
+        });
+    </script>
+    <script src="main.js"></script>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <p>© 2026 Adam Mlayel</p>
+            </div>
+
+            <div class="footer-links">
+                <a href="mailto:mlayeladam@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/adam-m-layel-655a6a298/" target="_blank"><i
+                        class="fab fa-linkedin"></i></a>
+
+                <span><i class="fas fa-map-marker-alt"></i> Tunis, Tunisia </span>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
