@@ -36,13 +36,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 3. Mobile Menu Toggle logic
-    const navToggle = document.querySelector('.logo'); // Or add a hamburger button
-    const navLinks = document.querySelector('.nav-links');
+    const menuToggle = document.getElementById("menu-toggle");
+    const navLinks = document.getElementById("nav-links");
 
-    // Using the logo as a temporary toggle if no hamburger exists
-    navToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
+    menuToggle?.addEventListener("click", () => {
+        navLinks.classList.toggle("show");
     });
+
 
     const toggleBtn = document.getElementById('theme-toggle'); // Ensure you have an element with this ID
     toggleBtn.addEventListener('click', () => {
@@ -65,5 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
             button.textContent = isOpen ? 'Hide details' : 'View details';
         });
     });
+
+
 
 });
