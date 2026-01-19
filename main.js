@@ -34,11 +34,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* Active link detection based on current page */
     function setActiveNav() {
-        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        const path = window.location.pathname.toLowerCase();
+        const currentPage = path.split('/').pop() || 'index.html';
+
         navLinks.forEach(link => {
             link.classList.remove('active');
-            const href = link.getAttribute('href');
-            if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+            const href = link.getAttribute('href').toLowerCase();
+
+            // Match current page or handle root/index cases
+            if (href === currentPage ||
+                path.includes(href.replace('.html', '')) ||
+                (currentPage === '' && href === 'index.html') ||
+                (path.endsWith('/') && href === 'index.html')) {
                 link.classList.add('active');
             }
         });
