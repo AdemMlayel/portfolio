@@ -257,14 +257,15 @@ h1 span {
     background: linear-gradient(135deg, var(--card-bg) 0%, rgba(47, 129, 247, 0.02) 100%);
     border: 1px solid var(--border-color);
     border-radius: 16px;
-    padding: 2rem;
+    padding: 1.75rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 300px;
+    height: 280px;
+    overflow: hidden;
 }
 
 .project-card.open {
     height: auto;
-    min-height: 300px;
+    min-height: 280px;
 }
 
 .project-card:hover {
@@ -285,51 +286,39 @@ h1 span {
 
 .project-header {
     display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-    margin-bottom: 1rem;
-    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.875rem;
+    margin-bottom: 1.25rem;
+    min-height: 50px;
 }
 
 .project-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 44px;
-    height: 44px;
+    width: 42px;
+    height: 42px;
     background: linear-gradient(135deg, rgba(47, 129, 247, 0.15), rgba(88, 166, 255, 0.1));
     border: 1.5px solid var(--accent-color);
     border-radius: 10px;
     flex-shrink: 0;
     color: var(--accent-color);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 .project-card h3 {
-    flex: 1;
-    font-size: 1.15rem;
-    line-height: 1.4;
+    font-size: 1.1rem;
+    line-height: 1.35;
     color: var(--text-primary);
-    min-width: 150px;
-}
-
-.project-badge {
-    display: inline-block;
-    background: linear-gradient(135deg, rgba(47, 129, 247, 0.2), rgba(88, 166, 255, 0.1));
-    border: 1px solid var(--accent-color);
-    color: var(--accent-color);
-    font-size: 0.7rem;
-    font-weight: 700;
-    padding: 0.35rem 0.7rem;
-    border-radius: 20px;
-    white-space: nowrap;
+    margin: 0;
 }
 
 .project-description {
     line-height: 1.6;
-    margin-bottom: 1.25rem;
     color: var(--text-secondary);
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    flex-grow: 1;
+    margin-bottom: 1.25rem;
 }
 
 /* --- COLLAPSIBLE PROJECT CARDS --- */
@@ -371,7 +360,7 @@ h1 span {
 .card-details p {
     margin-bottom: 0.85rem;
     line-height: 1.65;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
 }
 
 .card-details p:last-child {
@@ -383,13 +372,13 @@ h1 span {
     align-items: center;
     gap: 0.5rem;
     margin-top: auto;
-    padding: 0.65rem 1rem;
+    padding: 0.6rem 1rem;
     background: transparent;
     border: 1.5px solid var(--accent-color);
     border-radius: 8px;
     color: var(--accent-color);
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     cursor: pointer;
     transition: all 0.25s ease;
     align-self: flex-start;
