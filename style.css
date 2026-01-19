@@ -254,9 +254,10 @@ h1 span {
     display: flex;
     flex-direction: column;
     position: relative;
-    overflow: hidden;
     background: linear-gradient(135deg, var(--card-bg) 0%, rgba(47, 129, 247, 0.02) 100%);
     border: 1px solid var(--border-color);
+    height: 500px;
+    overflow: hidden;
 }
 
 .project-card::before {
@@ -275,6 +276,7 @@ h1 span {
     gap: 1rem;
     margin-bottom: 1rem;
     position: relative;
+    padding: 2.5rem 2.5rem 0 2.5rem;
 }
 
 .project-icon {
@@ -316,23 +318,47 @@ h1 span {
     line-height: 1.6;
     margin-bottom: 1.5rem;
     color: var(--text-secondary);
+    padding: 0 2.5rem;
 }
 
 /* --- COLLAPSIBLE PROJECT CARDS --- */
 .collapsible .card-details {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease, margin 0.3s ease;
+    transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
     opacity: 0;
     margin: 0;
 }
 
 .collapsible.open .card-details {
-    max-height: 500px;
+    max-height: calc(100% - 100px);
+    overflow-y: auto;
     opacity: 1;
     margin-top: 1.5rem;
-    padding-top: 1.5rem;
+    padding: 1.5rem 2.5rem 2.5rem 2.5rem;
     border-top: 1px solid var(--border-color);
+}
+
+.card-details {
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-color) transparent;
+}
+
+.card-details::-webkit-scrollbar {
+    width: 6px;
+}
+
+.card-details::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.card-details::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 3px;
+}
+
+.card-details::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-hover);
 }
 
 .card-details p {
@@ -350,6 +376,7 @@ h1 span {
     gap: 0.5rem;
     margin-top: auto;
     padding: 0.75rem 1rem;
+    margin: 0 2.5rem 2.5rem 2.5rem;
     background: linear-gradient(135deg, rgba(47, 129, 247, 0.1), rgba(88, 166, 255, 0.05));
     border: 1.5px solid var(--accent-color);
     border-radius: 8px;
