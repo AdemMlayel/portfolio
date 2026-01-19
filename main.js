@@ -34,19 +34,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* Active link detection based on current page */
     function setActiveNav() {
-        const path = window.location.pathname.toLowerCase();
-        const currentPage = decodeURIComponent(path.split('/').pop()) || 'index.html';
+        // Get the full URL and extract the filename
+        const fullPath = decodeURIComponent(window.location.pathname);
+        const filename = fullPath.substring(fullPath.lastIndexOf('/') + 1).toLowerCase() || 'index.html';
 
         navLinks.forEach(link => {
             link.classList.remove('active');
             const href = link.getAttribute('href').toLowerCase();
 
-            // Exact match only
-            if (href === currentPage) {
-                link.classList.add('active');
-            }
-            // Handle root path (/) as index.html
-            else if ((currentPage === '' || path.endsWith('/')) && href === 'index.html') {
+            // Match filename exactly
+            if (href === filename) {
                 link.classList.add('active');
             }
         });
