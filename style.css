@@ -130,13 +130,7 @@ h1 span {
 }
 
 /* --- GRID SYSTEM --- */
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    margin-top: 2rem;
-}
-
+.services-grid,
 .about-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -148,53 +142,29 @@ h1 span {
 .card {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
-    padding: 1.75rem;
-    border-radius: 12px;
-    transition: transform 0.3s ease,
+    padding: 2.5rem;
+    border-radius: 16px;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
         border-color 0.3s ease,
+        background 0.3s ease,
         box-shadow 0.3s ease;
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 1.25rem;
+    flex-direction: column;
+    gap: 1.2rem;
     position: relative;
+    overflow: hidden;
 }
 
 .card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-10px);
     border-color: var(--accent-color);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    box-shadow: var(--shadow);
 }
 
 .card i {
-    font-size: 1.5rem;
-    color: var(--accent-color);
-    flex-shrink: 0;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, rgba(47, 129, 247, 0.15), rgba(88, 166, 255, 0.08));
-    border-radius: 10px;
-}
-
-.card-content {
-    flex: 1;
-}
-
-.card-content h3 {
-    font-size: 1.05rem;
-    color: var(--text-primary);
     margin-bottom: 0.5rem;
-    font-weight: 600;
-}
-
-.card-content p {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    line-height: 1.6;
-    margin: 0;
+    font-size: 2rem;
+    color: var(--accent-color);
 }
 
 .card h3 {
@@ -206,6 +176,69 @@ h1 span {
     color: var(--text-secondary);
     font-size: 1rem;
     line-height: 1.7;
+}
+
+/* --- SERVICES OFFERED SECTION --- */
+.services-offered-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.service-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.service-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-color);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.service-card i {
+    font-size: 1.25rem;
+    color: var(--accent-color);
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(47, 129, 247, 0.15), rgba(88, 166, 255, 0.08));
+    border-radius: 10px;
+}
+
+.service-card-content {
+    flex: 1;
+}
+
+.service-card-content h3 {
+    font-size: 1rem;
+    color: var(--text-primary);
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+}
+
+.service-card-content p {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    line-height: 1.55;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .services-offered-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* --- BUTTONS --- */
