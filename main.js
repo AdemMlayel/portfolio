@@ -32,14 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
         navbar.classList.toggle("scrolled", window.scrollY > 20);
     });
 
-    /* Active link - match by current page filename */
-    const currentFile = location.pathname.split('/').pop();
-    navLinks.forEach(link => {
-        if (link.getAttribute('href') === currentFile) {
-            link.classList.add('active');
-        }
-    });
-
     // 1. Smooth scroll for internal links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
