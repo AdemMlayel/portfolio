@@ -245,10 +245,9 @@ h1 span {
 /* --- PROJECT CARDS GRID --- */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     margin-top: 2rem;
-    align-items: start;
 }
 
 .project-card {
@@ -260,7 +259,12 @@ h1 span {
     border-radius: 16px;
     padding: 2rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    min-height: 280px;
+    height: 300px;
+}
+
+.project-card.open {
+    height: auto;
+    min-height: 300px;
 }
 
 .project-card:hover {
@@ -700,6 +704,12 @@ h1 span {
 
     .project-card {
         padding: 1.5rem;
+        height: auto;
+        min-height: 250px;
+    }
+
+    .project-card.open {
+        height: auto;
     }
 
     .project-header {
