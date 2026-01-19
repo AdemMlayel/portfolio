@@ -105,14 +105,25 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleBtn.style.transition = 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
     }
 
-    // ========== COLLAPSIBLE PROJECT CARDS ==========
+    // ========== COLLAPSIBLE PROJECT CARDS (ACCORDION) ==========
     document.querySelectorAll('.collapsible .toggle-btn').forEach(button => {
         button.addEventListener('click', () => {
-            const card = button.closest('.collapsible');
-            const isOpen = card.classList.toggle('open');
-            const icon = button.querySelector('i');
-            const text = button.querySelector('i') ? button.childNodes[1] : button.textContent;
+            const clickedCard = button.closest('.collapsible');
+            const allCards = document.querySelectorAll('.collapsible');
 
+            // Close all other cards
+            allCards.forEach(card => {
+                if (card !== clickedCard && card.classList.contains('open')) {
+                    card.classList.remove('open');
+                    const otherBtn = card.querySelector('.toggle-btn');
+                    if (otherBtn) {
+                        otherBtn.innerHTML = '<i class="fas fa-chevron-down"></i> View details';
+                    }
+                }
+            });
+
+            // Toggle the clicked card
+            const isOpen = clickedCard.classList.toggle('open');
             if (isOpen) {
                 button.innerHTML = '<i class="fas fa-chevron-down"></i> Hide details';
             } else {
