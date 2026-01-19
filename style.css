@@ -260,6 +260,7 @@ h1 span {
     border-radius: 16px;
     padding: 2rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-height: 280px;
 }
 
 .project-card:hover {
