@@ -782,8 +782,17 @@ h1 span {
 }
 
 .nav-link.active {
-    color: var(--accent-color);
+    color: var(--accent-color) !important;
     font-weight: 600;
+}
+
+.nav-link.active::before {
+    content: "";
+    position: absolute;
+    inset: -6px -12px;
+    background: rgba(47, 129, 247, 0.1);
+    border-radius: 8px;
+    z-index: -1;
 }
 
 /* ===== ACTION BUTTON ===== */
