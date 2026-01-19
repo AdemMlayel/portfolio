@@ -110,7 +110,14 @@ document.addEventListener('DOMContentLoaded', () => {
         button.addEventListener('click', () => {
             const card = button.closest('.collapsible');
             const isOpen = card.classList.toggle('open');
-            button.textContent = isOpen ? 'Hide details' : 'View details';
+            const icon = button.querySelector('i');
+            const text = button.querySelector('i') ? button.childNodes[1] : button.textContent;
+
+            if (isOpen) {
+                button.innerHTML = '<i class="fas fa-chevron-down"></i> Hide details';
+            } else {
+                button.innerHTML = '<i class="fas fa-chevron-down"></i> View details';
+            }
         });
     });
 
