@@ -36,12 +36,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 3. Mobile Menu Toggle logic
-    const menuToggle = document.getElementById("menu-toggle");
-    const navLinks = document.getElementById("nav-links");
+    const navToggle = document.getElementById("nav-toggle");
+    const navMenu = document.getElementById("nav-menu");
+    const navbar = document.querySelector(".navbar");
 
-    menuToggle?.addEventListener("click", () => {
-        navLinks.classList.toggle("show");
+    /* Toggle mobile menu */
+    navToggle.addEventListener("click", () => {
+        navMenu.classList.toggle("open");
     });
+
+    /* Close menu when clicking a link */
+    document.querySelectorAll(".nav-link").forEach(link => {
+        link.addEventListener("click", () => {
+            navMenu.classList.remove("open");
+        });
+    });
+
+    /* Sticky shadow on scroll */
+    window.addEventListener("scroll", () => {
+        navbar.classList.toggle("scrolled", window.scrollY > 20);
+    });
+
 
 
     const toggleBtn = document.getElementById('theme-toggle'); // Ensure you have an element with this ID
