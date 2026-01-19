@@ -241,6 +241,35 @@ h1 span {
     }
 }
 
+/* --- ABOUT INTRO SECTION --- */
+.about-intro {
+    max-width: 800px;
+    margin-bottom: 3rem;
+}
+
+.about-intro .lead {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1.25rem;
+    line-height: 1.5;
+}
+
+.about-intro .lead strong {
+    color: var(--accent-color);
+}
+
+.about-text {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.about-text:last-child {
+    margin-bottom: 0;
+}
+
 /* --- BUTTONS --- */
 .cta-btn {
     display: inline-block;
