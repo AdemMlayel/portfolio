@@ -1,4 +1,50 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // ========== NAVBAR ENHANCEMENTS ==========
+    const navToggle = document.getElementById("nav-toggle");
+    const navMenu = document.getElementById("nav-menu");
+    const navbar = document.querySelector(".navbar");
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    /* Toggle mobile menu */
+    navToggle.addEventListener("click", () => {
+        navMenu.classList.toggle("open");
+        navToggle.classList.toggle("open");
+    });
+
+    /* Close menu when clicking a link */
+    navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            navMenu.classList.remove("open");
+            navToggle.classList.remove("open");
+        });
+    });
+
+    /* Close menu when clicking outside */
+    document.addEventListener("click", (e) => {
+        if (!navbar.contains(e.target)) {
+            navMenu.classList.remove("open");
+            navToggle.classList.remove("open");
+        }
+    });
+
+    /* Sticky shadow and animation on scroll */
+    window.addEventListener("scroll", () => {
+        navbar.classList.toggle("scrolled", window.scrollY > 20);
+    });
+
+    /* Active link detection based on current page */
+    function setActiveNav() {
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            const href = link.getAttribute('href');
+            if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+                link.classList.add('active');
+            }
+        });
+    }
+    setActiveNav();
+
     // 1. Smooth scroll for internal links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -35,52 +81,37 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(card);
     });
 
-    // 3. Mobile Menu Toggle logic
-    const navToggle = document.getElementById("nav-toggle");
-    const navMenu = document.getElementById("nav-menu");
-    const navbar = document.querySelector(".navbar");
 
-    /* Toggle mobile menu */
-    navToggle.addEventListener("click", () => {
-        navMenu.classList.toggle("open");
-    });
-
-    /* Close menu when clicking a link */
-    document.querySelectorAll(".nav-link").forEach(link => {
-        link.addEventListener("click", () => {
-            navMenu.classList.remove("open");
+    // ========== THEME TOGGLE ==========
+    const toggleBtn = document.getElementById('theme-toggle');
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            // Animate icon rotation
+            toggleBtn.style.transform = 'rotate(360deg)';
+            setTimeout(() => {
+                toggleBtn.style.transform = 'rotate(0deg)';
+            }, 300);
         });
-    });
 
-    /* Sticky shadow on scroll */
-    window.addEventListener("scroll", () => {
-        navbar.classList.toggle("scrolled", window.scrollY > 20);
-    });
+        // On Load: Check for saved theme
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
 
+        // Add smooth transition to theme toggle
+        toggleBtn.style.transition = 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+    }
 
-
-    const toggleBtn = document.getElementById('theme-toggle'); // Ensure you have an element with this ID
-    toggleBtn.addEventListener('click', () => {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme); // Save preference
-    });
-
-    // On Load: Check for saved theme
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-
-    // 4. Collapsible project cards
+    // ========== COLLAPSIBLE PROJECT CARDS ==========
     document.querySelectorAll('.collapsible .toggle-btn').forEach(button => {
         button.addEventListener('click', () => {
             const card = button.closest('.collapsible');
             const isOpen = card.classList.toggle('open');
-
             button.textContent = isOpen ? 'Hide details' : 'View details';
         });
     });
-
-
 
 });
