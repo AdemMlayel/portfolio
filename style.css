@@ -248,7 +248,7 @@ h1 span {
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
-    align-items: stretch;
+    align-items: start;
 }
 
 .project-card {
@@ -260,7 +260,6 @@ h1 span {
     border-radius: 16px;
     padding: 2rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    min-height: 320px;
 }
 
 .project-card:hover {
