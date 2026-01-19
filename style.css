@@ -289,7 +289,7 @@ h1 span {
     align-items: center;
     gap: 0.875rem;
     margin-bottom: 1.25rem;
-    min-height: 50px;
+    height: 60px;
 }
 
 .project-icon {
@@ -317,7 +317,8 @@ h1 span {
     line-height: 1.6;
     color: var(--text-secondary);
     font-size: 0.9rem;
-    flex-grow: 1;
+    height: 75px;
+    overflow: hidden;
     margin-bottom: 1.25rem;
 }
 
