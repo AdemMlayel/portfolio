@@ -32,23 +32,13 @@ document.addEventListener('DOMContentLoaded', () => {
         navbar.classList.toggle("scrolled", window.scrollY > 20);
     });
 
-    /* Active link detection based on current page */
-    function setActiveNav() {
-        // Get the full URL and extract the filename
-        const fullPath = decodeURIComponent(window.location.pathname);
-        const filename = fullPath.substring(fullPath.lastIndexOf('/') + 1).toLowerCase() || 'index.html';
-
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            const href = link.getAttribute('href').toLowerCase();
-
-            // Match filename exactly
-            if (href === filename) {
-                link.classList.add('active');
-            }
-        });
-    }
-    setActiveNav();
+    /* Active link - match by current page filename */
+    const currentFile = location.pathname.split('/').pop();
+    navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentFile) {
+            link.classList.add('active');
+        }
+    });
 
     // 1. Smooth scroll for internal links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
